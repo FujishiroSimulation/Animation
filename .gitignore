@@ -1,2 +1,6 @@
-*.outr
+*.out
 *.xyz
+*.gitignore
+*.ipch
+*.bin
+*.csv

@@ -87,6 +87,7 @@ SaveOutput2DGNUPLOT(int je)
  FILE *scxn;
  FILE *sc;
  FILE *su;
+ FILE *ani;
  register int i,j;
  real x, y;
 
@@ -156,6 +157,8 @@ SaveOutput2DGNUPLOT(int je)
    sc=fopen(s,"w");
    sprintf(s,"Summary00%d.xyz",je);
    su=fopen(s,"w");
+   sprintf(s,"Animation.csv",je);
+   ani=fopen(s,"w");
  }
  else if(je>9 && je<=99){
    sprintf(s,"density0%d.xyz",je);
@@ -532,6 +535,13 @@ SaveOutput2DGNUPLOT(int je)
   //ocupancy in chanel
   fprintf(su,"ocupancy in chanel L:G:X %d %d %d\n",SCL,SCG,SCX);
 
+  // Animation
+  // =========
+  for(i=1;i<=AniC;i++){
+    for(j=1;j<=Nnumber;j++){
+      fprintf(ani,"%d,%d,%d,%g,%g\n",i,j,Ani_IV[i][j],Ani_X[i][j],Ani_Y[i][j]);
+    }
+  }
 // Closure of output files
 // =======================
    fclose(fp);
@@ -566,6 +576,7 @@ SaveOutput2DGNUPLOT(int je)
    fclose(scxn);
    fclose(sc);
    fclose(su);
+   fclose(ani);
   }
 // Save the Hybrid MEP results
  if(Model_Number==MEPE || Model_Number==MEPEH){

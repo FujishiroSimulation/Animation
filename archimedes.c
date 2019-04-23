@@ -65,6 +65,7 @@
 #define SMALL 1.e-5
 #define VMAX 1000000
 #define NPMAX 10000000 // maximum number of super-particles
+#define Nnumber 1000 // For animation particle number
 #define MCE 0  // MCE stands for MC for electrons only
 #define MCH 1  // MCH stands for MC for holes only
 #define MCEH 2 // MCEH stands for MC both for electrons and holes
@@ -127,6 +128,8 @@ int CONDUCTION_BAND;
 int SAVE_MESH;
 int NODE_GEO[3][(NXM+1)*(NYM+1)];
 int SC[4][13];
+int AniC=0;
+int Ani_IV[10001][Nnumber];
 
 // All "real"'s here...
 real u2d[NXM+1][NYM+1][MN3+1];
@@ -193,6 +196,8 @@ real ANISO[5][5];
 real HIV[8];
 real DIV[8];
 real BUILDPOTENTIAL;
+real Ani_X[10001][Nnumber];
+real Ani_Y[10001][Nnumber];
 
 // All structures here...
 time_t binarytime;
