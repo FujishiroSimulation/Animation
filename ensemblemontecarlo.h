@@ -285,7 +285,13 @@ EMC(void)
     }
    }
   }
-
+ AniC += 1;
+ printf("AniC = %d\n",AniC);
+ for (i=1;i<=Nnumber;i++){
+  Ani_IV[AniC][i] = P[i][0];
+  Ani_X[AniC][i] = P[i][5];
+  Ani_Y[AniC][i] = P[i][6];
+ }
  printf("Actual number of electron super-particles = %d\n",INUM);
  if(INUM>NPMAX){
    printf("%s: too big actual number of particles\n",progname);
